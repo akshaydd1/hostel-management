@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace HostelManagementApi.DTOs.Requests
 {
@@ -15,6 +16,8 @@ namespace HostelManagementApi.DTOs.Requests
         public string? State { get; set; }
         public string? DocType { get; set; }
         public string? DocNumber { get; set; }
+
+        [JsonPropertyName("mobile_no")]
         public string? MobileNo { get; set; }
     }
 }
