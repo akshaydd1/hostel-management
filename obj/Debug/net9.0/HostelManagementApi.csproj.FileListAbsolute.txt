@@ -36,3 +36,6 @@ D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Microsoft.EntityFramew
 D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Npgsql.dll
 D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 D:\workspace\backend\HostelManagementApi\obj\Debug\net9.0\HostelManagementApi.sourcelink.json
+D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll

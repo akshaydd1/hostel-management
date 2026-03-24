@@ -1,6 +1,47 @@
 @HostelManagementApi_HostAddress = http://localhost:5125
 
-GET {{HostelManagementApi_HostAddress}}/weatherforecast/
+### Get Weather Forecast
+GET {{HostelManagementApi_HostAddress}}/api/weatherforecast
+Accept: application/json
+
+### Test Database Connection
+GET {{HostelManagementApi_HostAddress}}/api/users/test-db
+Accept: application/json
+
+### Get All Users
+GET {{HostelManagementApi_HostAddress}}/api/users
+Accept: application/json
+
+### Get User by ID
+GET {{HostelManagementApi_HostAddress}}/api/users/1
+Accept: application/json
+
+### Create a New User
+POST {{HostelManagementApi_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "city": "Mumbai",
+  "state": "Maharashtra",
+  "docType": "Aadhar",
+  "docNumber": "1234-5678-9012"
+}
+
+### Update a User
+PUT {{HostelManagementApi_HostAddress}}/api/users/1
+Content-Type: application/json
+
+{
+  "name": "John Updated",
+  "email": "john.updated@example.com",
+  "city": "Pune",
+  "state": "Maharashtra"
+}
+
+### Delete a User
+DELETE {{HostelManagementApi_HostAddress}}/api/users/1
 Accept: application/json
 
 ###
