@@ -17,7 +17,9 @@ namespace HostelManagementApi
             {
                 entity.ToTable("users", "public");
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id).HasColumnName("id")
+                    .UseIdentityAlwaysColumn()
+                    .ValueGeneratedOnAdd();
                 entity.Property(e => e.Name).HasColumnName("name");
                 entity.Property(e => e.Email).HasColumnName("email");
                 entity.Property(e => e.City).HasColumnName("city");

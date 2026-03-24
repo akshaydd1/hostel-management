@@ -35,3 +35,4 @@ D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Microsoft.EntityFramew
 D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Npgsql.dll
 D:\workspace\backend\HostelManagementApi\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\workspace\backend\HostelManagementApi\obj\Debug\net9.0\HostelManagementApi.sourcelink.json

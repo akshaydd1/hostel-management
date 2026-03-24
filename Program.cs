@@ -85,6 +85,47 @@ app.MapGet("/api/users", async (HostelManagementApi.HostelDbContext db) =>
 })
 .WithName("GetAllUsers");
 
+// POST /api/insertuser - Insert a new user
+app.MapPost("/api/insertuser", async (CreateUserRequest request, HostelManagementApi.HostelDbContext db) =>
+{
+    try
+    {
+        // Validate required fields
+        if (string.IsNullOrWhiteSpace(request.Name))
+            return Results.BadRequest(new { error = "Name is required." });
+
+        if (string.IsNullOrWhiteSpace(request.Email))
+            return Results.BadRequest(new { error = "Email is required." });
+
+        // Create user entity from request body
+        var user = new User
+        {
+            Name = request.Name.Trim(),
+            Email = request.Email.Trim(),
+            City = request.City?.Trim(),
+            State = request.State?.Trim(),
+            DocType = request.DocType?.Trim(),
+            DocNumber = request.DocNumber?.Trim(),
+            CreatedAt = DateTimeOffset.UtcNow
+        };
+
+        // Insert into database
+        db.Users.Add(user);
+        await db.SaveChangesAsync();
+
+        return Results.Created($"/api/users/{user.Id}", new
+        {
+            message = "User created successfully.",
+            user
+        });
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem($"Error creating user: {ex.Message}\nInner: {ex.InnerException?.Message}");
+    }
+})
+.WithName("InsertUser");
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
