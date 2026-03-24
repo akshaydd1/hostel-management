@@ -6,7 +6,6 @@ using HostelManagementApi.Services.Interfaces;
 namespace HostelManagementApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -17,15 +16,15 @@ namespace HostelManagementApi.Controllers
         }
 
         // GET /api/users
-        [HttpGet]
+        [HttpGet("api/users")]
         public async Task<IActionResult> GetAllUsers()
         {
             var users = await _userService.GetAllUsersAsync();
             return Ok(ApiResponse<IEnumerable<UserResponse>>.SuccessResponse(users));
         }
 
-        // GET /api/users/{id}
-        [HttpGet("{id}")]
+        // GET /api/user/{id}
+        [HttpGet("api/user/{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
             var user = await _userService.GetUserByIdAsync(id);
@@ -35,8 +34,8 @@ namespace HostelManagementApi.Controllers
             return Ok(ApiResponse<UserResponse>.SuccessResponse(user));
         }
 
-        // POST /api/users
-        [HttpPost]
+        // POST /api/insertuser
+        [HttpPost("api/insertuser")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
             var user = await _userService.CreateUserAsync(request);
@@ -44,8 +43,8 @@ namespace HostelManagementApi.Controllers
                 ApiResponse<UserResponse>.SuccessResponse(user, "User created successfully."));
         }
 
-        // PUT /api/users/{id}
-        [HttpPut("{id}")]
+        // PUT /api/updateuser/{id}
+        [HttpPut("api/updateuser/{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserRequest request)
         {
             var user = await _userService.UpdateUserAsync(id, request);
@@ -55,8 +54,8 @@ namespace HostelManagementApi.Controllers
             return Ok(ApiResponse<UserResponse>.SuccessResponse(user, "User updated successfully."));
         }
 
-        // DELETE /api/users/{id}
-        [HttpDelete("{id}")]
+        // DELETE /api/deleteuser/{id}
+        [HttpDelete("api/deleteuser/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var deleted = await _userService.DeleteUserAsync(id);
