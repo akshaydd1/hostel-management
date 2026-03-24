@@ -43,6 +43,10 @@ namespace HostelManagementApi.Data.Configurations
                 .HasColumnName("doc_number")
                 .HasMaxLength(100);
 
+            builder.Property(e => e.MobileNo)
+                .HasColumnName("mobile_no")
+                .HasMaxLength(15);
+
             builder.Property(e => e.CreatedAt)
                 .HasColumnName("created_at");
         }

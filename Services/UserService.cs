@@ -37,6 +37,7 @@ namespace HostelManagementApi.Services
                 State = request.State?.Trim(),
                 DocType = request.DocType?.Trim(),
                 DocNumber = request.DocNumber?.Trim(),
+                MobileNo = request.MobileNo?.Trim(),
                 CreatedAt = DateTimeOffset.UtcNow
             };
 
@@ -61,6 +62,8 @@ namespace HostelManagementApi.Services
                 user.DocType = request.DocType.Trim();
             if (request.DocNumber != null)
                 user.DocNumber = request.DocNumber.Trim();
+            if (request.MobileNo != null)
+                user.MobileNo = request.MobileNo.Trim();
 
             var updated = await _userRepository.UpdateAsync(user);
             return MapToResponse(updated);
@@ -86,6 +89,7 @@ namespace HostelManagementApi.Services
                 State = user.State,
                 DocType = user.DocType,
                 DocNumber = user.DocNumber,
+                MobileNo = user.MobileNo,
                 CreatedAt = user.CreatedAt
             };
         }

@@ -9,6 +9,7 @@ namespace HostelManagementApi.DTOs.Responses
         public string? State { get; set; }
         public string? DocType { get; set; }
         public string? DocNumber { get; set; }
+        public string? MobileNo { get; set; }
         public DateTimeOffset? CreatedAt { get; set; }
     }
 }
