@@ -1,10 +1,10 @@
-namespace HostelManagementApi.Models
+namespace HostelManagementApi.DTOs.Responses
 {
-    public class User
+    public class UserResponse
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Email { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public string? City { get; set; }
         public string? State { get; set; }
         public string? DocType { get; set; }
