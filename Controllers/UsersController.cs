@@ -43,6 +43,17 @@ namespace HostelManagementApi.Controllers
                 ApiResponse<UserResponse>.SuccessResponse(user, "User created successfully."));
         }
 
+        // POST /api/login
+        [HttpPost("api/login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            var user = await _userService.LoginAsync(request);
+            if (user == null)
+                return Unauthorized(ApiResponse<UserResponse>.FailResponse("Invalid email or password."));
+
+            return Ok(ApiResponse<UserResponse>.SuccessResponse(user, "Login successful."));
+        }
+
         // PUT /api/updateuser/{id}
         [HttpPut("api/updateuser/{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserRequest request)

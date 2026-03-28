@@ -24,6 +24,11 @@ namespace HostelManagementApi.Repositories
             return await _db.Users.FindAsync(id);
         }
 
+        public async Task<User?> GetByEmailAsync(string email)
+        {
+            return await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
         public async Task<User> CreateAsync(User user)
         {
             _db.Users.Add(user);

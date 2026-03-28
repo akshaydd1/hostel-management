@@ -80,6 +80,17 @@ namespace HostelManagementApi.Services
             return true;
         }
 
+        public async Task<UserResponse?> LoginAsync(LoginRequest request)
+        {
+            var user = await _userRepository.GetByEmailAsync(request.Email.Trim());
+            if (user == null) return null;
+
+            if (!PasswordHelper.VerifyPassword(request.Password, user.Password!))
+                return null;
+
+            return MapToResponse(user);
+        }
+
         private static UserResponse MapToResponse(User user)
         {
             return new UserResponse

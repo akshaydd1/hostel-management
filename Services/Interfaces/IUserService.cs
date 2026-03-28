@@ -10,5 +10,6 @@ namespace HostelManagementApi.Services.Interfaces
         Task<UserResponse> CreateUserAsync(CreateUserRequest request);
         Task<UserResponse?> UpdateUserAsync(int id, UpdateUserRequest request);
         Task<bool> DeleteUserAsync(int id);
+        Task<UserResponse?> LoginAsync(LoginRequest request);
     }
 }
