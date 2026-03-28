@@ -47,6 +47,11 @@ namespace HostelManagementApi.Data.Configurations
                 .HasColumnName("mobile_no")
                 .HasMaxLength(15);
 
+            builder.Property(e => e.Password)
+                .HasColumnName("password")
+                .IsRequired()
+                .HasMaxLength(500);
+
             builder.Property(e => e.CreatedAt)
                 .HasColumnName("created_at");
         }

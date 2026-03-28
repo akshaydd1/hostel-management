@@ -10,6 +10,7 @@ namespace HostelManagementApi.Models
         public string? DocType { get; set; }
         public string? DocNumber { get; set; }
         public string? MobileNo { get; set; }
+        public string? Password { get; set; }
         public DateTimeOffset? CreatedAt { get; set; }
     }
 }

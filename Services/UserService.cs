@@ -1,5 +1,6 @@
 using HostelManagementApi.DTOs.Requests;
 using HostelManagementApi.DTOs.Responses;
+using HostelManagementApi.Helpers;
 using HostelManagementApi.Models;
 using HostelManagementApi.Repositories.Interfaces;
 using HostelManagementApi.Services.Interfaces;
@@ -38,6 +39,7 @@ namespace HostelManagementApi.Services
                 DocType = request.DocType?.Trim(),
                 DocNumber = request.DocNumber?.Trim(),
                 MobileNo = request.MobileNo?.Trim(),
+                Password = PasswordHelper.HashPassword(request.Password),
                 CreatedAt = DateTimeOffset.UtcNow
             };
 
