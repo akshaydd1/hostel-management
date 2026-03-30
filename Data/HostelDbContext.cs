@@ -12,12 +12,14 @@ namespace HostelManagementApi.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<RoomDetail> RoomDetails { get; set; }
+        public DbSet<RentCollection> RentCollections { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new RoomDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new RentCollectionConfiguration());
         }
     }
 }

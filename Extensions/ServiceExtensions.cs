@@ -21,6 +21,7 @@ namespace HostelManagementApi.Extensions
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRoomDetailRepository, RoomDetailRepository>();
+            services.AddScoped<IRentCollectionRepository, RentCollectionRepository>();
             return services;
         }
 
@@ -28,6 +29,7 @@ namespace HostelManagementApi.Extensions
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRoomDetailService, RoomDetailService>();
+            services.AddScoped<IRentCollectionService, RentCollectionService>();
             return services;
         }
 
