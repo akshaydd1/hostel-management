@@ -20,12 +20,14 @@ namespace HostelManagementApi.Extensions
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRoomDetailRepository, RoomDetailRepository>();
             return services;
         }
 
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoomDetailService, RoomDetailService>();
             return services;
         }
 

@@ -6,25 +6,26 @@ using HostelManagementApi.Services.Interfaces;
 namespace HostelManagementApi.Controllers
 {
     [ApiController]
-    public class UsersController : ControllerBase
+    [Route("api/[controller]")]
+    public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
 
-        public UsersController(IUserService userService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }
 
-        // GET /api/users
-        [HttpGet("api/users")]
+        // GET /api/User/view
+        [HttpGet("view")]
         public async Task<IActionResult> GetAllUsers()
         {
             var users = await _userService.GetAllUsersAsync();
             return Ok(ApiResponse<IEnumerable<UserResponse>>.SuccessResponse(users));
         }
 
-        // GET /api/user/{id}
-        [HttpGet("api/user/{id}")]
+        // GET /api/User/view/{id}
+        [HttpGet("view/{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
             var user = await _userService.GetUserByIdAsync(id);
@@ -34,8 +35,8 @@ namespace HostelManagementApi.Controllers
             return Ok(ApiResponse<UserResponse>.SuccessResponse(user));
         }
 
-        // POST /api/insertuser
-        [HttpPost("api/insertuser")]
+        // POST /api/User/insert
+        [HttpPost("insert")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
             var user = await _userService.CreateUserAsync(request);
@@ -43,8 +44,8 @@ namespace HostelManagementApi.Controllers
                 ApiResponse<UserResponse>.SuccessResponse(user, "User created successfully."));
         }
 
-        // POST /api/login
-        [HttpPost("api/login")]
+        // POST /api/User/login
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             var user = await _userService.LoginAsync(request);
@@ -54,8 +55,8 @@ namespace HostelManagementApi.Controllers
             return Ok(ApiResponse<UserResponse>.SuccessResponse(user, "Login successful."));
         }
 
-        // PUT /api/updateuser/{id}
-        [HttpPut("api/updateuser/{id}")]
+        // PUT /api/User/update/{id}
+        [HttpPut("update/{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserRequest request)
         {
             var user = await _userService.UpdateUserAsync(id, request);
@@ -65,8 +66,8 @@ namespace HostelManagementApi.Controllers
             return Ok(ApiResponse<UserResponse>.SuccessResponse(user, "User updated successfully."));
         }
 
-        // DELETE /api/deleteuser/{id}
-        [HttpDelete("api/deleteuser/{id}")]
+        // DELETE /api/User/delete/{id}
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var deleted = await _userService.DeleteUserAsync(id);
